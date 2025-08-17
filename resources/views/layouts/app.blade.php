@@ -9,7 +9,7 @@
   <meta name="keywords" content="" />
 
   <!-- Favicons -->
- 
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
@@ -41,6 +41,8 @@
         <ul>
           <li><a href="{{ url('/') }}#hero" class="{{ request()->is('portfolio') ? 'active' : '' }}">Home</a></li>
           <li><a href="{{ url('/postss') }}" class="{{ request()->is('/postss') ? 'active' : '' }}">Posts</a></li>
+          <li><a href="{{ url('/videos') }}#hero" class="{{ request()->is('/videos') ? 'active' : '' }}">Videos</a></li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
