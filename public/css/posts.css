@@ -1,0 +1,356 @@
+.post-card {
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    overflow: hidden;
+}
+
+.post-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 6px;
+    width: 100%;
+    padding: 6px;
+}
+
+.post-images img {
+    object-fit: cover;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.post-images img:hover {
+    transform: scale(1.02);
+}
+
+.post-images.multiple {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.post-images.multiple img {
+    height: 160px;
+}
+
+/* Specific layouts for different numbers of images */
+.post-images.multiple:has(img:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.post-images.multiple:has(img:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.post-images.multiple:has(img:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.post-images.multiple:has(img:nth-child(5):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.post-images.multiple:has(img:nth-child(6):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Show only first 4 images for multiple images */
+.post-images.multiple img:nth-child(n+5) {
+    display: none;
+}
+
+/* Add overlay with "+" indicator on 4th image when there are 5+ images */
+.post-images.multiple:has(img:nth-child(5)) img:nth-child(4) {
+    position: relative;
+}
+
+.post-images.multiple:has(img:nth-child(5)) img:nth-child(4)::after {
+    content: "+" attr(data-remaining);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Show image count indicator if more than 5 images */
+.post-images.multiple:has(img:nth-child(n+6))::after {
+    content: "+" attr(data-count);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Single image takes full width */
+.post-images:not(.multiple) {
+    grid-template-columns: 1fr;
+}
+
+.post-images:not(.multiple) img {
+    height: 280px;
+}
+
+/* Hover indicator for 5th image when hovering over 4th image */
+.post-images.multiple:has(img:nth-child(5)) img:nth-child(4) {
+    position: relative;
+}
+
+.post-images.multiple:has(img:nth-child(5)) img:nth-child(4)::after {
+    content: "+1";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.post-images.multiple:has(img:nth-child(5)) img:nth-child(4):hover::after {
+    opacity: 1;
+}
+
+/* Show image count indicator if more than 5 images */
+.post-images.multiple:has(img:nth-child(n+6))::after {
+    content: "+" attr(data-count);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Page Title Styles */
+.container h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #e87532 0%, #ff8c42 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 20px 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #e87532, #ff8c42);
+    border-radius: 2px;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35, #e87532);
+    border-radius: 2px;
+}
+
+.container h2:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Post Body Styles */
+.post-body {
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* Post Title Styles */
+.post-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #2c3e50;
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.post-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #e87532, #ff8c42);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.post-title:hover::after {
+    width: 80px;
+}
+
+.post-title:hover {
+    color: #1a252f;
+}
+
+/* Post Text Styles */
+.post-text {
+    font-size: 1rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid #e87532;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.post-text:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Love Button Styles */
+.love-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #e87532, #ff8c42);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(232, 117, 50, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.love-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.love-button:hover {
+    background: linear-gradient(135deg, #ff8c42, #e87532);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 117, 50, 0.4);
+}
+
+.love-button:hover::before {
+    left: 100%;
+}
+
+.love-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(232, 117, 50, 0.3);
+}
+
+.love-button.liked {
+    background: linear-gradient(135deg, #ff8c42, #e87532);
+    animation: heartBeat 0.6s ease;
+}
+
+.love-button .count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(0.95); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Remove lines specifically under navigation text elements */
+.logo h1.sitename {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: none !important;
+}
+
+.logo {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.navmenu a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.navmenu a:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.navmenu a.active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+
