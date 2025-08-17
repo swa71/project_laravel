@@ -63,9 +63,11 @@
                         <a href="{{ route('posts.main') }}" class="btn btn-outline-secondary btn-sm">
                             ← Retour aux posts
                         </a>
-                        <a href="{{ route('posts.videos') }}" class="btn btn-outline-primary btn-sm">
-                            Voir les vidéos
-                        </a>
+                        @if($post->images && count($post->images) > 0)
+                            <a href="{{ route('posts.videos') }}" class="btn btn-outline-primary btn-sm">
+                                Voir les vidéos
+                            </a>
+                        @endif
                         <button class="love-button" data-post-id="{{ $post->id }}">
                             ❤️ J'adore <span class="count">0</span>
                         </button>

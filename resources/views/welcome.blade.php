@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h2 class="text-center fw-bold text-primary mb-5"> Derniers Posts</h2>
+        <h2 class="text-center fw-bold text-primary mb-5">Derniers Posts & Vidéos</h2>
 
     @forelse($posts as $index => $post)
         <div class="post-card">
@@ -71,9 +71,15 @@
             <div class="post-body">
                 <div class="post-title">{{ $post->title }}</div>
                 <div class="post-text">{{ wordwrap($post->content, 100, "\n", true) }}</div>
-                <button class="love-button" data-post-id="{{ $post->id ?? $index }}">
-                    ❤️ J'adore <span class="count">0</span>
-                </button>
+                @if($post->images && count($post->images) > 0)
+                    <button class="love-button" data-post-id="{{ $post->id ?? $index }}">
+                        ❤️ J'adore <span class="count">0</span>
+                    </button>
+                @else
+                    <button class="love-button" data-post-id="{{ $post->id ?? $index }}">
+                        ❤️ J'adore <span class="count">0</span>
+                    </button>
+                @endif
             </div>
         </div>
     @empty

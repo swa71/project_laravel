@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h2 class="text-center fw-bold text-primary mb-5">Posts avec Vidéos</h2>
+        <h2 class="text-center fw-bold text-primary mb-5">Dernières Vidéos</h2>
 
     @forelse($posts as $index => $post)
         <div class="post-card">
@@ -60,7 +60,9 @@
                 <div class="post-title">{{ $post->title }}</div>
                 <div class="post-text">{{ wordwrap($post->content, 100, "\n", true) }}</div>
                 <div class="d-flex gap-2">
-                    <a href="{{ route('posts.show', $post) }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    @if($post->images && count($post->images) > 0)
+                        <a href="{{ route('posts.show', $post) }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    @endif
                     <button class="love-button" data-post-id="{{ $post->id ?? $index }}">
                         ❤️ J'adore <span class="count">0</span>
                     </button>
