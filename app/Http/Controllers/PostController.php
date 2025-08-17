@@ -35,9 +35,11 @@ class PostController extends Controller
             'title'   => 'required',
             'content' => 'required',
             'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'videos.*' => 'nullable|mimes:mp4,avi,mov,wmv,flv,webm|max:102400', // 100MB max for videos
         ]);
 
         $imagesPaths = [];
+        $videosPaths = [];
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -45,13 +47,20 @@ class PostController extends Controller
             }
         }
 
+        if ($request->hasFile('videos')) {
+            foreach ($request->file('videos') as $video) {
+                $videosPaths[] = $video->store('posts/videos', 'public');
+            }
+        }
+
         Post::create([
             'title'   => $request->title,
             'content' => $request->content,
             'images'  => $imagesPaths,
+            'videos'  => $videosPaths,
         ]);
 
-        return redirect()->route('posts.admin')->with('success', 'Post ajouté avec images');
+        return redirect()->route('posts.admin')->with('success', 'Post ajouté avec images et vidéos');
     }
 
     // Formulaire de modification
@@ -67,9 +76,11 @@ class PostController extends Controller
             'title'   => 'required',
             'content' => 'required',
             'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'videos.*' => 'nullable|mimes:mp4,avi,mov,wmv,flv,webm|max:102400', // 100MB max for videos
         ]);
 
         $imagesPaths = $post->images ?? [];
+        $videosPaths = $post->videos ?? [];
 
         if ($request->hasFile('images')) {
             // Supprimer les anciennes images
@@ -83,10 +94,23 @@ class PostController extends Controller
             }
         }
 
+        if ($request->hasFile('videos')) {
+            // Supprimer les anciennes vidéos
+            foreach ($videosPaths as $old) {
+                Storage::delete('public/' . $old);
+            }
+            $videosPaths = [];
+
+            foreach ($request->file('videos') as $video) {
+                $videosPaths[] = $video->store('posts/videos', 'public');
+            }
+        }
+
         $post->update([
             'title'   => $request->title,
             'content' => $request->content,
             'images'  => $imagesPaths,
+            'videos'  => $videosPaths,
         ]);
 
         return redirect()->route('posts.admin')->with('success', 'Post mis à jour');
@@ -99,7 +123,7 @@ class PostController extends Controller
         return view('main', compact('posts'));
     }
 
-    // Suppression d’un post
+    // Suppression d'un post
     public function destroy(Post $post)
     {
         if ($post->images) {
@@ -108,7 +132,26 @@ class PostController extends Controller
             }
         }
 
+        if ($post->videos) {
+            foreach ($post->videos as $video) {
+                Storage::delete('public/' . $video);
+            }
+        }
+
         $post->delete();
         return redirect()->route('posts.admin')->with('success', 'Post supprimé');
+    }
+
+    // Affiche les posts avec vidéos dans la page principale
+    public function showPostsWithVideos()
+    {
+        $posts = Post::whereNotNull('videos')->orWhere('videos', '!=', '[]')->latest()->get();
+        return view('posts-with-videos', compact('posts'));
+    }
+
+    // Affiche un post spécifique avec ses vidéos
+    public function showPost(Post $post)
+    {
+        return view('post-detail', compact('post'));
     }
 }

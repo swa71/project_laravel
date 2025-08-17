@@ -26,6 +26,10 @@ Route::resource('/admin/posts', PostController::class)->names([
 
 //ROUTE FOR AFFICHE THE POSTS
 Route::get('/main', [PostController::class, 'showPosts'])->name('posts.main');
+
+//ROUTE FOR VIDEOS
+Route::get('/videos', [PostController::class, 'showPostsWithVideos'])->name('posts.videos');
+Route::get('/post/{post}', [PostController::class, 'showPost'])->name('posts.show');
 ////////////////////////////////////////////////////////////////////////////////
 
 //login for admin

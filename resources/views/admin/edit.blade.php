@@ -39,8 +39,36 @@
         <div class="mb-3">
             <label for="images" class="form-label">Ajouter / Remplacer les images</label>
             <input type="file" name="images[]" id="images" class="form-control" multiple accept="image/*">
-            <small class="text-muted">Laisser vide pour garder les images actuelles.</small>
+            <small class="text-muted">Laisser vide pour garder les images actuelles. Formats acceptés: JPG, JPEG, PNG. Taille max: 2MB par image</small>
             @error('images.*')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        @if($post->videos)
+            <div class="mb-3">
+                <label>Vidéos actuelles :</label>
+                <div class="d-flex flex-wrap gap-2">
+                    @foreach($post->videos as $video)
+                        <div class="border rounded p-2">
+                            <video width="200" height="150" controls>
+                                <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                            <div class="text-center mt-1">
+                                <small class="text-muted">{{ basename($video) }}</small>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
+        <div class="mb-3">
+            <label for="videos" class="form-label">Ajouter / Remplacer les vidéos</label>
+            <input type="file" name="videos[]" id="videos" class="form-control" multiple accept="video/*">
+            <small class="text-muted">Laisser vide pour garder les vidéos actuelles. Formats acceptés: MP4, AVI, MOV, WMV, FLV, WEBM. Taille max: 100MB par vidéo</small>
+            @error('videos.*')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

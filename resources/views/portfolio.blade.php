@@ -48,6 +48,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="{{ url('/postss') }}" class="active">Posts</a></li>
+          <li><a href="{{ url('/videos') }}" class="active">Vidéos</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#resume">Resume</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -100,7 +101,7 @@
           </div>
           <div class="col-lg-6">
             <div class="hero-image">
-              <img src="assets/img/profile/profile-1.webp" alt="Portfolio Hero Image" class="img-fluid" data-aos="zoom-out" data-aos-delay="300">
+              <img src="{{ asset('easyfolio/assets/img/profile/profile-1.webp') }}" alt="Portfolio Hero Image" class="img-fluid" data-aos="zoom-out" data-aos-delay="300">
               <div class="shape-1"></div>
               <div class="shape-2"></div>
             </div>
@@ -130,7 +131,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 position-relative" data-aos="fade-right" data-aos-delay="200">
             <div class="about-image">
-              <img src="assets/img/profile/profile-square-2.webp" alt="Profile Image" class="img-fluid rounded-4">
+              <img src="{{ asset('easyfolio/assets/img/profile/profile-square-2.webp') }}" alt="Profile Image" class="img-fluid rounded-4">
             </div>
           </div>
 
@@ -192,7 +193,7 @@
 
               <div class="signature mt-4">
                 <div class="signature-image">
-                  <img src="assets/img/misc/signature-1.webp" alt="" class="img-fluid">
+                  <img src="{{ asset('easyfolio/assets/img/misc/signature-1.webp') }}" alt="" class="img-fluid">
                 </div>
                 <div class="signature-info">
                   <h4>Eliot Johnson</h4>
@@ -419,10 +420,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/portfolio/portfolio-1.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-1.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/portfolio/portfolio-1.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -438,10 +439,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/portfolio/portfolio-10.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/portfolio/portfolio-10.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -457,10 +458,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-motion">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/portfolio/portfolio-7.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-7.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-motion"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/portfolio/portfolio-7.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-motion"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -476,10 +477,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-brand">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/profile/profile-square-2.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-4.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-brand"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/profile/profile-square-2.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-brand"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -495,10 +496,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-2.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/portfolio/portfolio-2.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/portfolio/portfolio-2.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -514,10 +515,10 @@
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
               <div class="portfolio-card">
                 <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-11.webp" class="img-fluid" alt="" loading="lazy">
+                  <img src="{{ asset('easyfolio/assets/img/portfolio/portfolio-11.webp') }}" class="img-fluid" alt="" loading="lazy">
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="{{ asset('easyfolio/assets/img/portfolio/portfolio-11.webp') }}" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
                       <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
@@ -584,7 +585,7 @@
                       Beatae magnam dolore quia ipsum. Voluptatem totam et qui dolore dignissimos. Amet quia sapiente laudantium nihil illo et assumenda sit cupiditate. Nam perspiciatis perferendis minus consequatur. Enim ut eos quo.
                     </p>
                     <div class="profile d-flex align-items-center">
-                      <img src="assets/img/person/person-m-7.webp" class="profile-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-m-7.webp') }}" class="profile-img" alt="">
                       <div class="profile-info">
                         <h3>Saul Goodman</h3>
                         <span>Client</span>
@@ -593,7 +594,7 @@
                   </div>
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="featured-img-wrapper">
-                      <img src="assets/img/person/person-m-7.webp" class="featured-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-m-7.webp') }}" class="featured-img" alt="">
                     </div>
                   </div>
                 </div>
@@ -612,7 +613,7 @@
                       Dolorem excepturi esse qui amet maxime quibusdam aut repellendus voluptatum. Corrupti enim a repellat cumque est laborum fuga consequuntur. Dolorem nostrum deleniti quas voluptatem iure dolorum rerum. Repudiandae doloribus ut repellat harum vero aut. Modi aut velit aperiam aspernatur odit ut vitae.
                     </p>
                     <div class="profile d-flex align-items-center">
-                      <img src="assets/img/person/person-f-8.webp" class="profile-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-f-8.webp') }}" class="profile-img" alt="">
                       <div class="profile-info">
                         <h3>Sara Wilsson</h3>
                         <span>Designer</span>
@@ -622,7 +623,7 @@
 
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="featured-img-wrapper">
-                      <img src="assets/img/person/person-f-8.webp" class="featured-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-f-8.webp') }}" class="featured-img" alt="">
                     </div>
                   </div>
                 </div>
@@ -643,7 +644,7 @@
                       Itaque ut explicabo vero occaecati est quam rerum sed. Numquam tempora aut aut quaerat quia illum. Nobis quia autem odit ipsam numquam. Doloribus sit sint corporis eius totam fuga. Hic nostrum suscipit corrupti nam expedita adipisci aut optio.
                     </p>
                     <div class="profile d-flex align-items-center">
-                      <img src="assets/img/person/person-m-9.webp" class="profile-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-m-9.webp') }}" class="profile-img" alt="">
                       <div class="profile-info">
                         <h3>Matt Brandon</h3>
                         <span>Freelancer</span>
@@ -652,7 +653,7 @@
                   </div>
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="featured-img-wrapper">
-                      <img src="assets/img/person/person-m-9.webp" class="featured-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-m-9.webp') }}" class="featured-img" alt="">
                     </div>
                   </div>
                 </div>
@@ -671,7 +672,7 @@
                       Omnis aspernatur accusantium qui delectus praesentium repellendus. Facilis sint odio aspernatur voluptas commodi qui qui qui pariatur. Corrupti deleniti itaque quaerat ipsum deleniti culpa tempora tempore. Et consequatur exercitationem hic aspernatur nobis est voluptatibus architecto laborum.
                     </p>
                     <div class="profile d-flex align-items-center">
-                      <img src="assets/img/person/person-f-10.webp" class="profile-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-f-10.webp') }}" class="profile-img" alt="">
                       <div class="profile-info">
                         <h3>Jena Karlis</h3>
                         <span>Store Owner</span>
@@ -680,7 +681,7 @@
                   </div>
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="featured-img-wrapper">
-                      <img src="assets/img/person/person-f-10.webp" class="featured-img" alt="">
+                      <img src="{{ asset('easyfolio/assets/img/person/person-f-10.webp') }}" class="featured-img" alt="">
                     </div>
                   </div>
                 </div>
